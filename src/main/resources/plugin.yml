@@ -1,8 +1,11 @@
 name: $name
 version: $version
-main: io.papermc.paperweight.testplugin.TestPlugin
+main: io.github.shotoh.beararms.BearArms
 description: $description
 load: STARTUP
 authors:
-  - Author
+  - shotoh
 api-version: "$apiVersion"
+commands:
+  beararms:
+    aliases: ba

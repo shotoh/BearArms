@@ -2,6 +2,7 @@ plugins {
   `java-library`
   id("io.papermc.paperweight.userdev") version "1.5.11"
   id("xyz.jpenilla.run-paper") version "2.2.2" // Adds runServer and runMojangMappedServer tasks for testing
+  id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 
 group = "io.papermc.paperweight"
@@ -13,10 +14,18 @@ java {
   toolchain.languageVersion.set(JavaLanguageVersion.of(17))
 }
 
+repositories {
+  mavenCentral()
+  maven("https://oss.sonatype.org/content/repositories/snapshots")
+}
+
 dependencies {
-  paperweight.paperDevBundle("1.20.4-R0.1-SNAPSHOT")
+  paperweight.paperDevBundle("1.20.2-R0.1-SNAPSHOT")
   // paperweight.foliaDevBundle("1.20.4-R0.1-SNAPSHOT")
   // paperweight.devBundle("com.example.paperfork", "1.20.4-R0.1-SNAPSHOT")
+  implementation("cloud.commandframework", "cloud-core", "1.8.4")
+  implementation("cloud.commandframework", "cloud-bukkit", "1.8.4")
+  implementation("cloud.commandframework", "cloud-paper", "1.8.4")
 }
 
 tasks {
